@@ -1,15 +1,11 @@
 import { TMeal } from "@/types";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { Rating } from "@smastrom/react-rating";
+
+import "@smastrom/react-rating/style.css";
 
 // {
 //   "liked": [],
@@ -36,10 +32,10 @@ const MealsCard = ({ meal }: { meal: TMeal }) => {
   console.log(meal);
   return (
     <Card>
-      <CardHeader>
+      {/* <CardHeader>
         <CardTitle>{meal.mealTitle}</CardTitle>
         <CardDescription>{meal.mealType}</CardDescription>
-      </CardHeader>
+      </CardHeader> */}
       <CardContent>
         <div>
           <Image
@@ -47,11 +43,17 @@ const MealsCard = ({ meal }: { meal: TMeal }) => {
             alt="meal image"
             width={300}
             height={200}
+            className="w-[305px] rounded-2xl h-[250px] object-cover"
           />
         </div>
-        <p>{meal.price}</p>
+        <div className="px-3 py-3">
+          <h1>{meal.mealTitle}</h1>
+          <p>{meal.mealType}</p>
+          <p>{meal.price}</p>
+          <Rating style={{ maxWidth: 150 }} value={Math.ceil(meal.rating)} />
+        </div>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="p-3">
         <Button>
           <Link href={`/meals/${meal._id}`}>View Meal</Link>
         </Button>

@@ -15,19 +15,18 @@ import Image from "next/image";
 const Navbar = () => {
   return (
     <header className="fixed top-0 z-50 w-full border-b-[1px] border-b-smooth bg-white dark:border-gray-800 dark:bg-gray-950 rounded-b-lg">
-      <div className="container mx-auto flex h-17 max-w-7xl items-center justify-between px-4 md:px-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center space-x-3">
-          <div className="relative w-[80px] h-[80px]">
+      <div className=" mx-auto max-w-[1340px] flex h-17 items-center justify-between px-4 md:px-6">
+        <div className="py-1">
+          <Link href="/">
             <Image
-              src="https://graphicsfamily.com/wp-content/uploads/edd/2021/06/Editable-Photoshop-Food-Logo-Design-PNG-Transparent.png"
-              alt="MyWebsite Logo"
-              fill
-              className="object-contain drop-shadow-lg transition-transform duration-300 hover:scale-110"
-              priority
+              src="https://i.ibb.co.com/vCgxyJbj/Editable-Photoshop-Food-Logo-Design-PNG-Transparent-1.png"
+              alt="Restaurant Logo"
+              width={50}
+              height={50}
+              className="h-14 w-14"
             />
-          </div>
-        </Link>
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
