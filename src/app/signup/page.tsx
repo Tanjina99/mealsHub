@@ -8,47 +8,79 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import useAuth from "@/hooks/useAuth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { toast } from "react-hot-toast"; // Import toast for notifications
+import { useRouter } from "next/navigation"; // Import for navigation
+import axios from "axios"; // Import axios for API calls
+
+// Create a public axios instance
+
+
+// Image hosting API (you'll need to set this up)
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`;
 
 // Define validation schema using zod
-const formSchema = z
-  .object({
-    fullname: z.string().min(1, "Full name is required."),
-    photourl: z.string().url("Please enter a valid URL."),
-    email: z
-      .string()
-      .email("Please enter a valid email address")
-      .min(1, "Email is required."),
-    password: z.string().min(6, "Password must be at least 6 characters."),
-    confirmPassword: z
-      .string()
-      .min(6, "Confirm Password must be at least 6 characters."),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match.",
-    path: ["confirmPassword"],
-  });
+const formSchema = z.object({
+  name: z.string().min(1, "Full name is required."),
+  image: z.string().url("Please enter a valid URL."),
+  email: z.string().email("Please enter a valid email address").min(1, "Email is required."),
+  password: z.string().min(6, "Password must be at least 6 characters."),
+  photo: z.any().optional(), // For file uploads
+});
 
 export default function Signup() {
-  // 1. Use react-hook-form with zod validation.
+  // Get auth functions from custom hook
+  const { createUser, updateUserProfile, logOut } = useAuth();
+  const router = useRouter();
+  
+  // Initialize form with zod validation
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullname: "",
-      photourl: "",
+      name: "",
+      image: "",
       email: "",
       password: "",
-      confirmPassword: "",
     },
   });
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+  // Define submit handler
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    try {
+      
+      // Create user with Firebase
+      const result = await createUser(data.email, data.password);
+      const user = result.user;
+      console.log(user);
+      toast.success('Registration Successful');
+      
+      // Update user profile
+      await updateUserProfile(data.name, data.image);
+      toast.success('User Created Successfully');
+      
+      // Save user to your database
+      const newUser = {
+        name: data.name,
+        email: data.email,
+        image: data.image,
+        badge: 'Bronze',
+        badge_image: "https://i.ibb.co/TrN8dFr/bronze-badge-removebg-preview.png"
+      };
+      
+      await axios.post("https://dorm-dine-hub-server.vercel.app/users", newUser);
+      
+      // Logout and redirect to login
+      await logOut();
+      router.push("/signin");
+      
+    } catch (error) {
+      toast.error(`${error}`);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">
@@ -61,7 +93,7 @@ export default function Signup() {
             {/* Full Name Field */}
             <FormField
               control={form.control}
-              name="fullname"
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-text-color">Full Name</FormLabel>
@@ -81,7 +113,7 @@ export default function Signup() {
             {/* Photo URL Field */}
             <FormField
               control={form.control}
-              name="photourl"
+              name="image"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-text-color">Photo URL</FormLabel>
@@ -138,33 +170,11 @@ export default function Signup() {
               )}
             />
 
-            {/* Confirm Password Field */}
-            <FormField
-              control={form.control}
-              name="confirmPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-text-color">
-                    Confirm Password
-                  </FormLabel>
-                  <FormControl>
-                    <input
-                      type="password"
-                      placeholder="Confirm your password"
-                      {...field}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-100"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
             {/* Submit Button */}
             <div className="flex justify-center">
               <Button
                 type="submit"
-                className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Sign Up
               </Button>
@@ -176,7 +186,7 @@ export default function Signup() {
         <div className="mt-4 text-center">
           <p className="text-sm text-text-color">
             Already have an account?{" "}
-            <Link href="/login" className="text-primary hover:underline">
+            <Link href="/signin" className="text-primary hover:underline">
               Login
             </Link>
           </p>
