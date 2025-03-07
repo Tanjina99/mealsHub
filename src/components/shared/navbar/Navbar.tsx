@@ -15,7 +15,7 @@ import Image from "next/image";
 const Navbar = () => {
   return (
     <header className="fixed top-0 z-50 w-full border-b-[1px] border-b-smooth bg-white dark:border-gray-800 dark:bg-gray-950 rounded-b-lg">
-      <div className=" mx-auto max-w-[1340px] flex h-17 items-center justify-between px-4 md:px-6">
+      <div className=" mx-auto max-w-[1300px] flex h-17 items-center justify-between px-4 md:px-6">
         <div className="py-1">
           <Link href="/">
             <Image
@@ -82,6 +82,11 @@ const Navbar = () => {
                 />
               </div>
             </DropdownMenuContent>
+          </DropdownMenu>
+          <DropdownMenu>
+            <Link href="/signin">
+              <Button>Signin</Button>
+            </Link>
           </DropdownMenu>
 
           {/* Dark Mode Toggle */}

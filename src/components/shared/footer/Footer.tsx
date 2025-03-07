@@ -12,16 +12,18 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className=" text-white py-6">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-8 md:gap-16 lg:gap-24">
+      <div className="mx-auto max-w-[1300px] px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-8 md:gap-16 lg:gap-24">
         <div className="flex flex-col items-start space-y-2">
-          <div className="relative w-[90px] h-[90px] -mt-4 -ml-4">
-            <Image
-              src="https://graphicsfamily.com/wp-content/uploads/edd/2021/06/Editable-Photoshop-Food-Logo-Design-PNG-Transparent.png"
-              alt="MyWebsite Logo"
-              layout="fill"
-              className="object-contain drop-shadow-lg transition-transform duration-300 hover:scale-110"
-              priority
-            />
+          <div className="py-1">
+            <Link href="/">
+              <Image
+                src="https://i.ibb.co.com/vCgxyJbj/Editable-Photoshop-Food-Logo-Design-PNG-Transparent-1.png"
+                alt="Restaurant Logo"
+                width={50}
+                height={50}
+                className="h-14 w-14"
+              />
+            </Link>
           </div>
 
           <p className="text-sm text-gray-600">

@@ -14,3 +14,14 @@ export type TMeal = {
   admin_Email: string;
   liked: (boolean | string)[]; // Array that contains boolean and string values (user email addresses).
 };
+
+export type MealPlan = {
+  name: string;
+  price: string;
+  description: string;
+  image: string;
+};
+
+export type MealPlanCardProps = {
+  plan: MealPlan;
+};

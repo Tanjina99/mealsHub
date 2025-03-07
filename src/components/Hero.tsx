@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
-    <section className="w-full max-w-7xl mx-auto p-4 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 min-h-screen">
+    <section className=" w-full max-w-7xl mx-auto p-4 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 min-h-screen">
       <div className="flex-1 text-center md:text-left">
         <h2 className="text-4xl md:text-5xl font-bold text-text-color mb-4">
           Delicious <span className="text-primary">Meals</span>,{" "}

@@ -31,31 +31,44 @@ import "@smastrom/react-rating/style.css";
 const MealsCard = ({ meal }: { meal: TMeal }) => {
   console.log(meal);
   return (
-    <Card>
-      {/* <CardHeader>
-        <CardTitle>{meal.mealTitle}</CardTitle>
-        <CardDescription>{meal.mealType}</CardDescription>
-      </CardHeader> */}
-      <CardContent>
-        <div>
+    <Card className="max-w-sm bg-accent shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl">
+      <CardContent className="p-0">
+        {/* Meal Image */}
+        <div className="relative w-full h-[250px]">
           <Image
             src={meal.mealImage}
-            alt="meal image"
+            alt={meal.mealTitle}
             width={300}
             height={200}
-            className="w-[305px] rounded-2xl h-[250px] object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
-        <div className="px-3 py-3">
-          <h1>{meal.mealTitle}</h1>
-          <p>{meal.mealType}</p>
-          <p>{meal.price}</p>
-          <Rating style={{ maxWidth: 150 }} value={Math.ceil(meal.rating)} />
+
+        {/* Meal Info */}
+        <div className="p-4">
+          <h1 className="text-lg font-semibold text-text-color">
+            {meal.mealTitle}
+          </h1>
+
+          {/* Meal Type & Price - Side by Side */}
+          <div className="flex justify-between items-center mt-1">
+            <p className="text-sm text-gray-500">{meal.mealType}</p>
+            <p className="text-lg font-bold text-yellow-600">${meal.price}</p>
+          </div>
+
+          {/* Rating */}
+          <div className="mt-2">
+            <Rating style={{ maxWidth: 90 }} value={Math.ceil(meal.rating)} />
+          </div>
         </div>
       </CardContent>
-      <CardFooter className="p-3">
-        <Button>
-          <Link href={`/meals/${meal._id}`}>View Meal</Link>
+
+      {/* Footer Button */}
+      <CardFooter className="p-4">
+        <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-lg transition-all">
+          <Link href={`/meals/${meal._id}`} className="w-full text-center">
+            View Meal
+          </Link>
         </Button>
       </CardFooter>
     </Card>
