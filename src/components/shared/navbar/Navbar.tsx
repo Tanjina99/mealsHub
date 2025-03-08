@@ -4,7 +4,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MenuIcon, PhoneIcon, SearchIcon } from "lucide-react";
+import { CircleUser, MenuIcon, PhoneIcon, SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { nanoid } from "nanoid";
 import Link from "next/link";
@@ -57,6 +57,59 @@ const Navbar = () => {
           </li>
         </ul>
 
+        {/* <ul className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
+          <li>
+            <a
+              href="/"
+              className={`hover:text-primary transition ${
+                router.pathname === "/" ? "text-primary" : ""
+              }`}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/meals"
+              className={`hover:text-primary transition ${
+                router.pathname === "/meals" ? "text-primary" : ""
+              }`}
+            >
+              Meals
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+              className={`hover:text-primary transition ${
+                router.pathname === "/about" ? "text-primary" : ""
+              }`}
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="/services"
+              className={`hover:text-primary transition ${
+                router.pathname === "/services" ? "text-primary" : ""
+              }`}
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact"
+              className={`hover:text-primary transition ${
+                router.pathname === "/contact" ? "text-primary" : ""
+              }`}
+            >
+              Contact
+            </a>
+          </li>
+        </ul> */}
+
         {/* Utility Icons and Mobile Menu */}
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-2 text-sm font-medium">
@@ -85,7 +138,9 @@ const Navbar = () => {
           </DropdownMenu>
           <DropdownMenu>
             <Link href="/signin">
-              <Button>Signin</Button>
+              <span>
+                <CircleUser />
+              </span>
             </Link>
           </DropdownMenu>
 

@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className=" text-white py-6">
+    <footer className="bg-custome-yellow text-white py-6">
       <div className="mx-auto max-w-[1300px] px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-8 md:gap-16 lg:gap-24">
         <div className="flex flex-col items-start space-y-2">
           <div className="py-1">
@@ -26,49 +26,42 @@ export default function Footer() {
             </Link>
           </div>
 
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-text-color">
             Discover delicious recipes and cooking tips for every occasion.
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-semibold text-black mb-4">Quick Links</h3>
+          <h3 className="text-xl font-semibold text-text-color mb-4">
+            Quick Links
+          </h3>
           <ul className="space-y-2">
             <li>
-              <Link href="#" className="text-gray-600 hover:text-orange-200">
+              <Link href="#" className="text-text-color hover:underline">
                 Home
               </Link>
             </li>
             <li>
-              <Link
-                href="/meals"
-                className="text-gray-600 hover:text-orange-200"
-              >
+              <Link href="/meals" className="text-text-color hover:underline">
                 Meals
               </Link>
             </li>
             <li>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-orange-200"
-              >
+              <Link href="/about" className="text-text-color hover:underline">
                 About
               </Link>
             </li>
             <li>
               <Link
                 href="/services"
-                className="text-gray-600 hover:text-orange-200"
+                className="text-text-color hover:underline"
               >
                 Services
               </Link>
             </li>
             <li>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-orange-200"
-              >
+              <Link href="/contact" className="text-text-color hover:underline">
                 Contact
               </Link>
             </li>
@@ -77,52 +70,54 @@ export default function Footer() {
 
         {/* Contact Us */}
         <div>
-          <h3 className="text-xl font-semibold text-black mb-4">Contact Us</h3>
+          <h3 className="text-xl font-semibold text-text-color mb-4">
+            Contact Us
+          </h3>
           <ul className="space-y-4">
             <li className="flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-gray-800" />
-              <span className="text-gray-600 mr-2">
+              <MapPin className="h-5 w-5 text-text-color" />
+              <span className="text-text-color mr-2">
                 123 Street, City, Country
               </span>
             </li>
             <li className="flex items-center gap-2">
-              <Phone className="h-5 w-5 text-gray-800" />
-              <span className="text-gray-600 mr-2">+123 456 7890</span>
+              <Phone className="h-5 w-5 text-text-color" />
+              <span className="text-text-color mr-2">+123 456 7890</span>
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-5 w-5 text-gray-800" />
-              <span className="text-gray-600">contact@cheffood.com</span>
+              <Mail className="h-5 w-5 text-text-color" />
+              <span className="text-text-color">contact@cheffood.com</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mt-6 flex flex-col sm:flex-row items-center justify-between border-t border-gray-700 pt-4">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mt-6 flex flex-col sm:flex-row items-center justify-between border-t border-gray-500 pt-4">
         {/* Social Media Icons */}
-        <div className="flex space-x-6 mb-4 sm:mb-0">
-          <Link href="#" className="text-gray-400 hover:text-white">
+        <div className="flex space-x-4 mb-4 sm:mb-0 -ml-4">
+          <Link href="#" className="text-text-color hover:text-primary">
             <Facebook className="h-6 w-6" />
           </Link>
-          <Link href="#" className="text-gray-400 hover:text-white">
+          <Link href="#" className="text-text-color hover:text-primary">
             <Twitter className="h-6 w-6" />
           </Link>
-          <Link href="#" className="text-gray-400 hover:text-white">
+          <Link href="#" className="text-text-color hover:text-primary">
             <Instagram className="h-6 w-6" />
           </Link>
         </div>
 
         {/* Copyright & Policies */}
-        <div className="text-gray-500 text-sm mt-4 md:mt-0 flex justify-between w-full space-x-6">
+        <div className="text-text-color text-sm mt-4 md:mt-0 flex justify-between w-full space-x-6">
           <div className="flex-1 text-center">
             &copy; {new Date().getFullYear()} Chef Food. All rights reserved.
           </div>
 
           {/* Links */}
           <div className="flex space-x-6 ml-auto">
-            <Link href="#" className="hover:text-white">
+            <Link href="#" className="hover:text-primary">
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-white">
+            <Link href="#" className="hover:text-primary">
               Terms & Conditions
             </Link>
           </div>

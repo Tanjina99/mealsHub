@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export type TMeal = {
   _id: string;
   mealTitle: string;
@@ -19,7 +21,8 @@ export type MealPlan = {
   name: string;
   price: string;
   description: string;
-  image: string;
+  icon: JSX.Element;
+  benefits: string[];
 };
 
 export type MealPlanCardProps = {

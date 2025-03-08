@@ -13,12 +13,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { toast } from "react-hot-toast"; // Import toast for notifications
-import { useRouter } from "next/navigation"; // Import for navigation
-import axios from "axios"; // Import axios for API calls
-
-// Create a public axios instance
-
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 // Image hosting API (you'll need to set this up)
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`;
@@ -27,7 +24,10 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${process.env.NEXT
 const formSchema = z.object({
   name: z.string().min(1, "Full name is required."),
   image: z.string().url("Please enter a valid URL."),
-  email: z.string().email("Please enter a valid email address").min(1, "Email is required."),
+  email: z
+    .string()
+    .email("Please enter a valid email address")
+    .min(1, "Email is required."),
   password: z.string().min(6, "Password must be at least 6 characters."),
   photo: z.any().optional(), // For file uploads
 });
@@ -36,7 +36,7 @@ export default function Signup() {
   // Get auth functions from custom hook
   const { createUser, updateUserProfile, logOut } = useAuth();
   const router = useRouter();
-  
+
   // Initialize form with zod validation
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -51,32 +51,34 @@ export default function Signup() {
   // Define submit handler
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-      
       // Create user with Firebase
       const result = await createUser(data.email, data.password);
       const user = result.user;
       console.log(user);
-      toast.success('Registration Successful');
-      
+      toast.success("Registration Successful");
+
       // Update user profile
       await updateUserProfile(data.name, data.image);
-      toast.success('User Created Successfully');
-      
+      toast.success("User Created Successfully");
+
       // Save user to your database
       const newUser = {
         name: data.name,
         email: data.email,
         image: data.image,
-        badge: 'Bronze',
-        badge_image: "https://i.ibb.co/TrN8dFr/bronze-badge-removebg-preview.png"
+        badge: "Bronze",
+        badge_image:
+          "https://i.ibb.co/TrN8dFr/bronze-badge-removebg-preview.png",
       };
-      
-      await axios.post("https://dorm-dine-hub-server.vercel.app/users", newUser);
-      
+
+      await axios.post(
+        "https://dorm-dine-hub-server.vercel.app/users",
+        newUser
+      );
+
       // Logout and redirect to login
       await logOut();
       router.push("/signin");
-      
     } catch (error) {
       toast.error(`${error}`);
     }

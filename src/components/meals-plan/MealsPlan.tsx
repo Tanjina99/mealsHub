@@ -1,35 +1,61 @@
 import MealPlanCard from "./MealPlanCard";
+import { Award, Trophy, Crown } from "lucide-react";
 
 const mealPlans = [
   {
-    name: "Daily Plan",
+    name: "Silver Plan",
     price: "$12.99",
-    description: "Get fresh meals delivered every day.",
-    image:
-      "https://static.vecteezy.com/system/resources/previews/017/177/791/large_2x/round-check-mark-symbol-with-transparent-background-free-png.png",
+    description:
+      "Enjoy basic meal delivery with fresh, healthy meals delivered daily.",
+    benefits: [
+      "Fresh daily meals",
+      "Standard delivery time",
+      "Basic customer support",
+    ],
+    icon: <Award />,
   },
   {
-    name: "Weekly Plan",
+    name: "Gold Plan",
     price: "$69.99",
-    description: "Enjoy a week's worth of healthy meals.",
-    image: "https://cdn-icons-png.flaticon.com/512/6117/6117202.png",
+    description:
+      "Get premium meals with additional benefits for a week’s worth of healthy meals.",
+    benefits: [
+      "Fresh, nutritious meals delivered every day",
+      "Priority delivery",
+      "Enhanced customer support",
+      "Weekly meal customization",
+    ],
+    icon: <Trophy />,
   },
   {
-    name: "Monthly Plan",
+    name: "Platinum Plan",
     price: "$249.99",
-    description: "Save and get meals for the whole month.",
-    image:
-      "https://png.pngtree.com/png-vector/20220622/ourmid/pngtree-schedule-clock-and-calendar-png-image_5262010.png",
+    description:
+      "The ultimate plan for a month’s worth of meals, with premium options and exclusive perks.",
+    benefits: [
+      "Fresh, gourmet meals delivered daily",
+      "Priority delivery with express options",
+      "24/7 customer support",
+      "Weekly and monthly meal customization",
+      "Exclusive recipe choices and discounts",
+    ],
+    icon: <Crown />,
   },
 ];
 
 const MealPlans = () => {
   return (
-    <section className="py-16 bg-gray-100 ">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-14 text-text-color">
-          Choose Your Meal Plan
-        </h2>
+    <section className="py-16 bg-custome-yellow">
+      <div className="max-w-7xl mx-auto text-center px-4">
+        <div className="flex justify-center mb-16">
+          <h2 className="text-3xl font-bold text-text-color uppercase tracking-wide pb-2 inline-block relative -mt-2">
+            Choose Your{" "}
+            <span className="text-primary border-b-4 border-yellow-400">
+              Meal Plan
+            </span>
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {mealPlans.map((plan, index) => (
             <MealPlanCard key={index} plan={plan} />

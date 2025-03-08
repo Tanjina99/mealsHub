@@ -39,7 +39,7 @@ export default function Signin() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96">
+      <div className=" p-8 rounded-lg shadow-lg w-full sm:w-96">
         <h2 className="text-4xl font-semibold text-center text-text-color mb-6">
           Login
         </h2>

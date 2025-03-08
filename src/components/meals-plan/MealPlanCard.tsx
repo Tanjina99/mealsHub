@@ -9,29 +9,40 @@ import {
   CardFooter,
 } from "../ui/card";
 import { MealPlanCardProps } from "@/types";
+import { Check } from "lucide-react";
 
 const MealPlanCard = ({ plan }: MealPlanCardProps) => {
   return (
-    <Card className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center transition-transform transform hover:scale-105 relative">
-      <CardHeader className="w-full h-5 mt-4 -mb-8 relative flex justify-center items-center p-4">
-        <Image
-          src={plan.image}
-          alt={plan.name}
-          layout="intrinsic"
-          width={140}
-          height={140}
-          className="object-contain absolute top-[-80px] left-1/2 transform -translate-x-1/2"
-        />
-      </CardHeader>
-
+    <Card className="shadow-lg rounded-lg p-4 flex flex-col items-center transition-transform transform hover:scale-105 relative">
       <CardContent className="text-center pt-16">
-        <CardTitle className="text-xl font-semibold mb-2">
-          {plan.name}
-        </CardTitle>
-        <CardDescription className="text-text-color text-sm mb-4">
+        <div className="flex flex-col justify-center items-center mb-2">
+          <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mb-2">
+            <div className="text-text-color text-center"> {plan.icon}</div>
+          </div>
+
+          <CardTitle className="text-xl font-semibold mt-2">
+            {plan.name}
+          </CardTitle>
+        </div>
+        <CardDescription className="text-text-color text-sm mb-4 text-center">
           {plan.description}
         </CardDescription>
+
         <p className="text-lg font-bold mb-4">{plan.price}</p>
+
+        {/* Display the benefits */}
+        <div className="text-center">
+          <ul className="list-none pl-5 space-y-2 h-[130px]">
+            {plan.benefits.map((benefit, index) => (
+              <li
+                key={index}
+                className="flex items-center text-sm text-text-color"
+              >
+                <Check className="w-4 h-4 text-yellow-500 mr-2" /> {benefit}
+              </li>
+            ))}
+          </ul>
+        </div>
       </CardContent>
 
       <CardFooter>
