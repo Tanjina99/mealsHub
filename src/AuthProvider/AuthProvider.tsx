@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
 /* eslint-disable react/prop-types */
 
 import React, { createContext, useEffect, useState } from "react";
-import { 
-  GoogleAuthProvider, 
-  createUserWithEmailAndPassword, 
-  onAuthStateChanged, 
-  signInWithEmailAndPassword, 
-  signInWithPopup, 
-  signOut, 
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
   updateProfile,
   User,
-  Auth
+  Auth,
 } from "firebase/auth";
 
 import axios from "axios";
@@ -86,24 +86,25 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   useEffect(() => {
     // Only run this effect in the browser
-    if (typeof window === 'undefined' || !auth) {
+    if (typeof window === "undefined" || !auth) {
       return () => {};
     }
 
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      
+
       if (currentUser) {
         // Get token and store it
         const userInfo = { email: currentUser.email };
-        axios.post("/jwt", userInfo)
+        axios
+          .post("https://dorm-dine-hub-server.vercel.app/jwt", userInfo)
           .then((res) => {
             if (res.data.token) {
               localStorage.setItem("access-token", res.data.token);
               setLoading(false);
             }
           })
-          .catch(err => {
+          .catch((err) => {
             console.error("Error getting JWT token:", err);
             setLoading(false);
           });
@@ -129,9 +130,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 

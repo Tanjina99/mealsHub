@@ -3,7 +3,7 @@ import { Truck, MapPin, Award, ArrowLeftRight } from "lucide-react";
 
 const ServiceSection = () => {
   return (
-    <section className="py-8 bg-custome-gray">
+    <section className="py-8 bg-secondary-mode-bg">
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
           <span className="text-primary font-semibold text-xs">

@@ -6,7 +6,7 @@ import { reviews } from "./review-Data";
 export default function CustomerReviews() {
   console.log(reviews);
   return (
-    <div className="bg-custome-gray">
+    <div className="bg-secondary-mode-bg">
       <div className="container mx-auto py-20 px-4 text-center max-w-5xl">
         <div className="flex justify-center mb-16">
           <h1 className="text-3xl font-bold text-text-color uppercase tracking-wide pb-2 inline-block relative -mt-2">

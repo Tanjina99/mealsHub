@@ -8,27 +8,6 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Heart } from "lucide-react";
 
-// {
-//   "liked": [],
-//   "_id": "656469e75d202cb0a72ca461",
-//   "mealTitle": "Banana Walnut Pancakes",
-//   "mealType": "Breakfast",
-//   "mealImage": "https://www.shutterstock.com/image-photo/stack-oatmeal-banana-pancakes-slices-600nw-1931862263.jpg",
-//   "ingredients": [
-//       "Pancake mix",
-//       "Bananas",
-//       "Walnuts",
-//       "Maple syrup"
-//   ],
-//   "description": "Treat yourself to Banana Walnut Pancakes, featuring fluffy pancakes studded with ripe bananas and crunchy walnuts. Drizzled with rich maple syrup.",
-//   "price": 9.49,
-//   "rating": 4.3,
-//   "timeDate": "2023-11-27T08:45:00.000Z",
-//   "likes": 20,
-//   "reviews": 8,
-//   "adminName": "Shohaib",
-//   "admin_Email": "mama@mami.com"
-// }
 const MealsCard = ({ meal }: { meal: TMeal }) => {
   console.log(meal);
   return (

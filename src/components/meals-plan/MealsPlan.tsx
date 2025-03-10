@@ -45,7 +45,7 @@ const mealPlans = [
 
 const MealPlans = () => {
   return (
-    <section className="py-16 bg-custome-yellow">
+    <section className="py-16 bg-light-mode-bg">
       <div className="max-w-7xl mx-auto text-center px-4">
         <div className="flex justify-center mb-16">
           <h2 className="text-3xl font-bold text-text-color uppercase tracking-wide pb-2 inline-block relative -mt-2">

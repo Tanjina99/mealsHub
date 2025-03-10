@@ -1,3 +1,4 @@
+"use client";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,8 +12,10 @@ import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle/ModeToggle";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
   return (
     <header className="fixed top-0 z-50 w-full border-b-[1px] border-b-smooth bg-white dark:border-gray-800 dark:bg-gray-950 rounded-b-lg">
       <div className=" mx-auto max-w-[1300px] flex h-17 items-center justify-between px-4 md:px-6">
@@ -29,7 +32,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
+        {/* <ul className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
           <li>
             <a href="/" className="hover:text-primary transition">
               Home
@@ -55,14 +58,14 @@ const Navbar = () => {
               Contact
             </a>
           </li>
-        </ul>
+        </ul> */}
 
-        {/* <ul className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
+        <ul className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
           <li>
             <a
               href="/"
               className={`hover:text-primary transition ${
-                router.pathname === "/" ? "text-primary" : ""
+                pathname === "/" ? "text-primary" : ""
               }`}
             >
               Home
@@ -72,7 +75,7 @@ const Navbar = () => {
             <a
               href="/meals"
               className={`hover:text-primary transition ${
-                router.pathname === "/meals" ? "text-primary" : ""
+                pathname === "/meals" ? "text-primary" : ""
               }`}
             >
               Meals
@@ -82,7 +85,7 @@ const Navbar = () => {
             <a
               href="/about"
               className={`hover:text-primary transition ${
-                router.pathname === "/about" ? "text-primary" : ""
+                pathname === "/about" ? "text-primary" : ""
               }`}
             >
               About
@@ -92,7 +95,7 @@ const Navbar = () => {
             <a
               href="/services"
               className={`hover:text-primary transition ${
-                router.pathname === "/services" ? "text-primary" : ""
+                pathname === "/services" ? "text-primary" : ""
               }`}
             >
               Services
@@ -102,13 +105,13 @@ const Navbar = () => {
             <a
               href="/contact"
               className={`hover:text-primary transition ${
-                router.pathname === "/contact" ? "text-primary" : ""
+                pathname === "/contact" ? "text-primary" : ""
               }`}
             >
               Contact
             </a>
           </li>
-        </ul> */}
+        </ul>
 
         {/* Utility Icons and Mobile Menu */}
         <div className="flex items-center gap-4">
@@ -139,7 +142,7 @@ const Navbar = () => {
           <DropdownMenu>
             <Link href="/signin">
               <span>
-                <CircleUser />
+                <CircleUser className="text-primary" />
               </span>
             </Link>
           </DropdownMenu>

@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
-    <section className="bg-custome-yellow w-full h-screen flex flex-col md:flex-row items-center px-6 md:px-12">
+    <section className="bg-light-mode-bg w-full h-screen flex flex-col md:flex-row items-center px-6 md:px-12">
       {/* Text Section */}
       <div className="flex-1 text-center md:text-left max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-text-color mb-6">
@@ -14,7 +14,7 @@ const Hero = () => {
           Enjoy fresh, restaurant-quality meals at your doorstep. Order now and
           indulge in a delightful experience!
         </p>
-        <Button className="mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
+        <Button className="mt-4 bg-button-primary hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
           Order Now
         </Button>
       </div>

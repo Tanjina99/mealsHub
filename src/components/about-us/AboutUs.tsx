@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 const AboutUs = () => {
   return (
-    <section className="bg-custome-gray py-16">
+    <section className="bg-secondary-mode-bg py-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
         <div className="w-full md:w-1/2 relative">
           <Image
