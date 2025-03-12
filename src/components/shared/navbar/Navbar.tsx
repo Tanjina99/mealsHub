@@ -60,7 +60,7 @@ const Navbar = () => {
           </li>
         </ul> */}
 
-        <ul className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
+        <ul className="hidden md:flex space-x-6 text-text-color font-medium">
           <li>
             <a
               href="/"
@@ -83,6 +83,16 @@ const Navbar = () => {
           </li>
           <li>
             <a
+              href="/upcoming-meals"
+              className={`hover:text-primary transition ${
+                pathname === "/upcoming-meals" ? "text-primary" : ""
+              }`}
+            >
+              UpComing Meals
+            </a>
+          </li>
+          <li>
+            <a
               href="/about"
               className={`hover:text-primary transition ${
                 pathname === "/about" ? "text-primary" : ""
@@ -91,16 +101,7 @@ const Navbar = () => {
               About
             </a>
           </li>
-          <li>
-            <a
-              href="/services"
-              className={`hover:text-primary transition ${
-                pathname === "/services" ? "text-primary" : ""
-              }`}
-            >
-              Services
-            </a>
-          </li>
+
           <li>
             <a
               href="/contact"
@@ -171,17 +172,24 @@ const Navbar = () => {
                   Home
                 </Link>
                 <Link
+                  href="/meals"
+                  className="text-sm font-medium text-custom-primary"
+                >
+                  Meals
+                </Link>
+                <Link
+                  href="/upcoming-meals"
+                  className="text-sm font-medium text-custom-primary"
+                >
+                  UpComing Meals
+                </Link>
+                <Link
                   href="/about"
                   className="text-sm font-medium text-custom-primary"
                 >
                   About
                 </Link>
-                <Link
-                  href="/services"
-                  className="text-sm font-medium text-custom-primary"
-                >
-                  Services
-                </Link>
+
                 <Link
                   href="/contact"
                   className="text-sm font-medium text-custom-primary"

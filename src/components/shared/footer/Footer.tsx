@@ -38,30 +38,42 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2">
             <li>
-              <Link href="#" className="text-text-color hover:underline">
+              <Link
+                href="/"
+                className="text-text-color hover:underline hover:decoration-primary"
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/meals" className="text-text-color hover:underline">
+              <Link
+                href="/meals"
+                className="text-text-color hover:underline hover:decoration-primary"
+              >
                 Meals
               </Link>
             </li>
             <li>
-              <Link href="/about" className="text-text-color hover:underline">
+              <Link
+                href="/about"
+                className="text-text-color hover:underline hover:decoration-primary"
+              >
                 About
               </Link>
             </li>
             <li>
               <Link
                 href="/services"
-                className="text-text-color hover:underline"
+                className="text-text-color hover:underline hover:decoration-primary"
               >
                 Services
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-text-color hover:underline">
+              <Link
+                href="/contact"
+                className="text-text-color hover:underline hover:decoration-primary"
+              >
                 Contact
               </Link>
             </li>
@@ -74,20 +86,34 @@ export default function Footer() {
             Contact Us
           </h3>
           <ul className="space-y-4">
-            <li className="flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-text-color" />
-              <span className="text-text-color mr-2">
-                123 Street, City, Country
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Phone className="h-5 w-5 text-text-color" />
-              <span className="text-text-color mr-2">+123 456 7890</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-5 w-5 text-text-color" />
-              <span className="text-text-color">contact@cheffood.com</span>
-            </li>
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-full hover:bg-primary/20 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer">
+                <MapPin className="w-5 h-5 text-primary" />
+              </div>
+
+              <div>
+                <p className="text-text-color mt-1">
+                  123 Meal Avenue, Food City, USA
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-full hover:bg-primary/20 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer">
+                <Phone className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-text-color mt-1">+1 (123) 456-7890</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-full hover:bg-primary/20 transform hover:scale-110 transition duration-300 ease-in-out cursor-pointer">
+                <Mail className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-text-color mt-1">contact@chefFood.com</p>
+              </div>
+            </div>
           </ul>
         </div>
       </div>

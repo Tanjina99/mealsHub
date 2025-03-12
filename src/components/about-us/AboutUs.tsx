@@ -14,7 +14,7 @@ const AboutUs = () => {
             height={600}
             className="rounded-lg"
           />
-          <div className="absolute top-4 left-4 bg-yellow-500 text-white px-4 py-2 rounded-lg shadow-md">
+          <div className="absolute top-4 left-4 bg-button-primary text-white px-4 py-2 rounded-lg shadow-md">
             Fresh & Healthy
           </div>
         </div>
@@ -24,7 +24,7 @@ const AboutUs = () => {
           <div className="flex justify-start mb-16">
             <h2 className="text-3xl font-bold text-text-color uppercase tracking-wide pb-2 inline-block relative -mt-2">
               About Our{" "}
-              <span className="text-primary border-b-4 border-yellow-400">
+              <span className="text-primary border-b-4 border-button-primary-hover">
                 Meal Plans
               </span>
             </h2>
