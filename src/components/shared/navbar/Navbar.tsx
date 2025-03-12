@@ -2,12 +2,11 @@
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { CircleUser, MenuIcon, PhoneIcon, SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle/ModeToggle";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -62,55 +61,55 @@ const Navbar = () => {
 
         <ul className="hidden md:flex space-x-6 text-text-color font-medium">
           <li>
-            <a
+            <Link
               href="/"
               className={`hover:text-primary transition ${
                 pathname === "/" ? "text-primary" : ""
               }`}
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/meals"
               className={`hover:text-primary transition ${
                 pathname === "/meals" ? "text-primary" : ""
               }`}
             >
               Meals
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/upcoming-meals"
               className={`hover:text-primary transition ${
                 pathname === "/upcoming-meals" ? "text-primary" : ""
               }`}
             >
               UpComing Meals
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/about"
               className={`hover:text-primary transition ${
                 pathname === "/about" ? "text-primary" : ""
               }`}
             >
               About
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a
+            <Link
               href="/contact"
               className={`hover:text-primary transition ${
                 pathname === "/contact" ? "text-primary" : ""
               }`}
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -205,16 +204,16 @@ const Navbar = () => {
   );
 };
 
-const landings = [
-  { id: nanoid(), title: "Landing 01", route: "/project-management" },
-  { id: nanoid(), title: "Landing 02", route: "/crm-landing" },
-  { id: nanoid(), title: "Landing 03", route: "/ai-content-landing" },
-  { id: nanoid(), title: "Landing 04", route: "/new-intro-landing" },
-  { id: nanoid(), title: "Landing 05", route: "/about-us-landing" },
-  { id: nanoid(), title: "Landing 06", route: "/contact-us-landing" },
-  { id: nanoid(), title: "Landing 07", route: "/faqs-landing" },
-  { id: nanoid(), title: "Landing 08", route: "/pricing-landing" },
-  { id: nanoid(), title: "Landing 09", route: "/career-landing" },
-];
+// const landings = [
+//   { id: nanoid(), title: "Landing 01", route: "/project-management" },
+//   { id: nanoid(), title: "Landing 02", route: "/crm-landing" },
+//   { id: nanoid(), title: "Landing 03", route: "/ai-content-landing" },
+//   { id: nanoid(), title: "Landing 04", route: "/new-intro-landing" },
+//   { id: nanoid(), title: "Landing 05", route: "/about-us-landing" },
+//   { id: nanoid(), title: "Landing 06", route: "/contact-us-landing" },
+//   { id: nanoid(), title: "Landing 07", route: "/faqs-landing" },
+//   { id: nanoid(), title: "Landing 08", route: "/pricing-landing" },
+//   { id: nanoid(), title: "Landing 09", route: "/career-landing" },
+// ];
 
 export default Navbar;

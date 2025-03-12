@@ -8,8 +8,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Check } from "lucide-react";
-import { Rating, Star } from "@smastrom/react-rating";
+import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import Image from "next/image";
 
 interface MealCardProps {
   meal: UpcomingMeal;
@@ -19,9 +20,11 @@ const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal }) => {
   return (
     <Card className="w-full h-[555px] flex flex-col overflow-hidden shadow-lg rounded-xl">
       <CardHeader className="p-0 h-48 flex-shrink-0">
-        <img
+        <Image
           src={meal.mealImage}
           alt={meal.mealTitle}
+          width={700}
+          height={900}
           className="w-full h-full object-cover rounded-t-xl"
         />
       </CardHeader>

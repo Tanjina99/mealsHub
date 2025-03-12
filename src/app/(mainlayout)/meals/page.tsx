@@ -5,7 +5,7 @@ import SearchBar from "@/components/search/SearchBar";
 import { TMeal } from "@/types";
 import { useEffect, useState } from "react";
 
-const AllMeals = ({ meal }: { meal: TMeal[] }) => {
+const AllMeals = () => {
   const [meals, setMeals] = useState<TMeal[]>([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");

@@ -72,7 +72,7 @@ export default function Signin() {
             axios
               .post("https://dorm-dine-hub-server.vercel.app/users", newUser)
               .then((response) => {
-                // console.log(response);
+                console.log(response);
               });
           }
         });
@@ -145,7 +145,7 @@ export default function Signin() {
         {/* Footer or Links */}
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/signup" className="text-primary hover:underline">
               Sign up
             </Link>

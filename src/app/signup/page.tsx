@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 
 // Image hosting API (you'll need to set this up)
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`;
+// const image_hosting_api = `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`;
 
 // Define validation schema using zod
 const formSchema = z.object({

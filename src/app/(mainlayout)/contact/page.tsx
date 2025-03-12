@@ -60,8 +60,8 @@ const ContactPage = () => {
               Contact Us
             </h1>
             <p className="text-lg text-text-color max-w-2xl mx-auto">
-              We're here to help! Reach out to us with any questions or feedback
-              about our services.
+              We&apos;re here to help! Reach out to us with any questions or
+              feedback about our services.
             </p>
           </section>
 

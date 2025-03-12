@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Rating } from "@smastrom/react-rating";
+import Image from "next/image";
 
 // Define the review type
 interface Review {
@@ -75,9 +76,11 @@ export default function TestimonialSwiper({ reviews }: TestimonialSwiperProps) {
             {/* Customer Info */}
             <div className="flex items-center mt-auto">
               <div className="w-12 h-12 rounded-full overflow-hidden mr-4 flex-shrink-0">
-                <img
+                <Image
                   src={review.image}
                   alt={review.name}
+                  width={600}
+                  height={700}
                   className="w-full h-full object-cover"
                 />
               </div>

@@ -19,7 +19,7 @@ const NotFoundPage = () => {
         Oops! Page Not Found
       </h2>
       <p className="text-gray-600 text-center mt-2 max-w-md md:text-lg">
-        The page you are looking for doesn't exist or has been moved.
+        The page you are looking for doesn&apos;t exist or has been moved.
       </p>
 
       <Link href="/" passHref>

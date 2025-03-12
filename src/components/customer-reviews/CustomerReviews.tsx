@@ -19,9 +19,9 @@ export default function CustomerReviews() {
         </div>
 
         <p className="text-lg text-text-color max-w-2xl mx-auto -mt-10">
-          Don't just take our word for it. See how our meal plans have helped
-          customers improve their lifestyles with healthy, convenient meal
-          delivery.
+          Don&apos;t just take our word for it. See how our meal plans have
+          helped customers improve their lifestyles with healthy, convenient
+          meal delivery.
         </p>
       </div>
 

@@ -33,8 +33,8 @@ const AboutUs = () => {
           <p className="text-text-color mb-6 leading-relaxed">
             Our meal plans are designed to provide **delicious, healthy, and
             nutritious meals** that cater to different lifestyles. Whether
-            you're looking for weight loss, muscle gain, or a balanced diet, we
-            have something for you!
+            you&apos;re looking for weight loss, muscle gain, or a balanced
+            diet, we have something for you!
           </p>
           <ul className="text-text-color mb-6 space-y-2">
             <li className="flex items-center gap-2">
