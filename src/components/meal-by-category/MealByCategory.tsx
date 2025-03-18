@@ -61,9 +61,7 @@ const MealByCategory = () => {
         <div className="flex justify-center mb-16">
           <h2 className="text-3xl font-bold text-text-color uppercase tracking-wide pb-2 inline-block relative -mt-2">
             Our{" "}
-            <span className="text-primary border-b-4 border-yellow-400">
-              Menu
-            </span>
+            <span className="text-primary border-b-4 border-primary">Menu</span>
           </h2>
         </div>
 
@@ -74,8 +72,8 @@ const MealByCategory = () => {
               onClick={() => setCategory(tab.name)}
               className={`flex flex-col items-center justify-center p-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-110 ${
                 category === tab.name
-                  ? "bg-button-primary text-primary border-2 border-yellow-600"
-                  : "bg-white text-text-color border border-gray-300"
+                  ? "bg-button-primary text-primary border-2 border-primary"
+                  : "bg-base text-text-color border border-primary"
               }`}
             >
               <div className="w-20 h-20 mb-3">

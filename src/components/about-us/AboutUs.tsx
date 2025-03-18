@@ -50,7 +50,7 @@ const AboutUs = () => {
               your doorstep
             </li>
           </ul>
-          <Button className="mt-4 px-6 py-3 text-lg bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
+          <Button className="mt-4 px-6 py-3 bg-button-primary text-base font-semibold rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
             Learn More
           </Button>
         </div>

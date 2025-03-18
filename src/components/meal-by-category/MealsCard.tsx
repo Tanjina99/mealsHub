@@ -24,19 +24,22 @@ const MealsCard = ({ meal }: { meal: TMeal }) => {
           />
 
           {/* Heart Icon  */}
-          <div className="absolute top-2 right-2 text-white bg-yellow-500 p-2 rounded-full hover:bg-yellow-800 cursor-pointer">
+          <div className="absolute top-2 right-2 text-base bg-button-primary p-2 rounded-full hover:bg-button-primary-hover cursor-pointer">
             <Heart size={20} />
           </div>
         </div>
 
         {/* Meal Info */}
         <div className="p-4">
-          {/* Meal Title & Rating - Side by Side */}
           <div className="flex justify-between items-center space-x-2">
             <h1 className="text-lg font-semibold text-text-color truncate">
               {meal.mealTitle}
             </h1>
-            <Rating style={{ maxWidth: 80 }} value={Math.ceil(meal.rating)} />
+            <Rating
+              style={{ maxWidth: 80 }}
+              value={Math.ceil(meal.rating)}
+              readOnly
+            />
           </div>
 
           {/* Meal Type & Price - Side by Side */}
@@ -49,7 +52,7 @@ const MealsCard = ({ meal }: { meal: TMeal }) => {
 
       {/* Footer Button */}
       <CardFooter className="p-4">
-        <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-lg transition-all">
+        <Button className="w-full bg-button-primary hover:bg-button-primary-hover text-base font-semibold py-2 px-4 rounded-lg transition-all">
           <Link href={`/meals/${meal._id}`} className="w-full text-center">
             View Meal
           </Link>

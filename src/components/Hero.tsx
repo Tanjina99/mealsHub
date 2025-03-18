@@ -14,7 +14,7 @@ const Hero = () => {
           Enjoy fresh, restaurant-quality meals at your doorstep. Order now and
           indulge in a delightful experience!
         </p>
-        <Button className="mt-4 bg-button-primary hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
+        <Button className="mt-4 bg-button-primary hover:bg-button-primary-hover text-base font-semibold py-3 px-6 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
           Order Now
         </Button>
       </div>

@@ -11,7 +11,7 @@ import { Check } from "lucide-react";
 
 const MealPlanCard = ({ plan }: MealPlanCardProps) => {
   return (
-    <Card className="shadow-lg rounded-lg p-4 flex flex-col items-center transition-transform transform hover:scale-105 relative">
+    <Card className="shadow-lg rounded-lg p-4 flex flex-col items-center  relative">
       <CardContent className="text-center pt-16">
         <div className="flex flex-col justify-center items-center mb-2">
           <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-2">
@@ -44,7 +44,7 @@ const MealPlanCard = ({ plan }: MealPlanCardProps) => {
       </CardContent>
 
       <CardFooter>
-        <Button className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-button-primary-hover transition-colors">
+        <Button className="px-6 py-2 bg-primary text-base rounded-lg hover:bg-button-primary-hover transition-colors">
           Sign Up
         </Button>
       </CardFooter>

@@ -24,11 +24,12 @@ const UpcomingMeals = async () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 ">
           {meals.map((meal) => (
-            <div
-              key={meal._id}
-              // className="transform transition duration-300 hover:scale-105"
-            >
-              <UpcomingMealsCard meal={meal} />
+            <div key={meal._id}>
+              <UpcomingMealsCard
+                key={meal._id}
+                meal={meal}
+                admin_Email={meal.admin_Email}
+              />
             </div>
           ))}
         </div>

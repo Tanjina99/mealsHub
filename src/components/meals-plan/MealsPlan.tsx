@@ -50,7 +50,7 @@ const MealPlans = () => {
         <div className="flex justify-center mb-16">
           <h2 className="text-3xl font-bold text-text-color uppercase tracking-wide pb-2 inline-block relative -mt-2">
             Choose Your{" "}
-            <span className="text-primary border-b-4 border-yellow-400">
+            <span className="text-primary border-b-4 border-primary">
               Meal Plan
             </span>
           </h2>

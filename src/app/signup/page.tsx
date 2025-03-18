@@ -85,8 +85,8 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96">
+    <div className="min-h-screen bg-secondary-mode-bg flex justify-center items-center">
+      <div className="bg-accent p-8 rounded-lg shadow-lg w-full sm:w-96">
         <h2 className="text-4xl font-semibold text-center text-text-color mb-6">
           Sign Up
         </h2>
@@ -104,7 +104,7 @@ export default function Signup() {
                       type="text"
                       placeholder="Enter your full name"
                       {...field}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-100"
+                      className="w-full p-3 border border-accent-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </FormControl>
                   <FormMessage />
@@ -124,7 +124,7 @@ export default function Signup() {
                       type="url"
                       placeholder="Enter your photo URL"
                       {...field}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-100"
+                      className="w-full p-3 border border-accent-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </FormControl>
                   <FormMessage />
@@ -144,7 +144,7 @@ export default function Signup() {
                       type="email"
                       placeholder="Enter your email"
                       {...field}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-100"
+                      className="w-full p-3 border border-accent-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </FormControl>
                   <FormMessage />
@@ -164,7 +164,7 @@ export default function Signup() {
                       type="password"
                       placeholder="Enter your password"
                       {...field}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-100"
+                      className="w-full p-3 border border-accent-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </FormControl>
                   <FormMessage />
@@ -176,7 +176,7 @@ export default function Signup() {
             <div className="flex justify-center">
               <Button
                 type="submit"
-                className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-button-primary hover:bg-button-primary-hover text-base py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 Sign Up
               </Button>

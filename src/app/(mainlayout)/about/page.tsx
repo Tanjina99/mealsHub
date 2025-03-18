@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -12,24 +14,23 @@ const About = () => {
             objectFit="cover"
             quality={100}
             priority
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full opacity-70"
           />
         </div>
 
         {/* Text Content */}
         <div className="relative z-10 text-center px-4 max-w-4xl">
-          <h1 className="text-5xl md:text-6xl font-bold">About Us</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-text-color">
+            About Us
+          </h1>
           <p className="mt-4 text-xl md:text-2xl font-bold text-text-color">
             Bringing you delicious meals, anytime, anywhere.
           </p>
 
           <div>
-            <a
-              href="#mission"
-              className="inline-block mt-8 px-8 py-3 bg-button-primary hover:bg-button-primary-hover rounded-full text-text-color font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
-            >
+            <Button className="mt-4 bg-button-primary hover:bg-button-primary-hover text-base font-semibold py-3 px-6 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105">
               Our Story
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -131,13 +132,13 @@ const About = () => {
               name: "John Doe",
               role: "Founder & CEO",
               image:
-                "https://i.pinimg.com/originals/9b/b2/65/9bb265c71b782bfb9ae01763369355fb.jpg",
+                "https://thumbs.dreamstime.com/b/professional-businessman-suit-his-office-working-business-corporate-image-young-succesful-entrepreneur-work-97025320.jpg",
             },
             {
               name: "Jane Smith",
               role: "Head Chef",
               image:
-                "https://img.freepik.com/premium-photo/handsome-businessman-suit_965238-3746.jpg",
+                "https://as1.ftcdn.net/v2/jpg/05/99/98/00/1000_F_599980082_F5uwUytettMJCPKE5s7JgAxhyaMgUY1U.jpg",
             },
             {
               name: "Alex Brown",
@@ -160,9 +161,10 @@ const About = () => {
                 <Image
                   src={member.image}
                   alt={member.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-500 group-hover:scale-110"
+                  height={1400}
+                  width={1400}
+                  objectFit="contain"
+                  className="w-full h-full object-cover rounded-t-xl"
                 />
                 {/* <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div> */}
               </div>
@@ -170,27 +172,39 @@ const About = () => {
                 <h3 className="text-xl font-bold">{member.name}</h3>
                 <p className="text-primary font-medium">{member.role}</p>
                 <div className="mt-4 flex justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a href="#" className="text-text-color hover:text-primary">
-                    <svg
-                      className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                    </svg>
-                  </a>
-                  <a href="#" className="text-text-color hover:text-primary">
+                  <Link href="#" className="text-text-color hover:text-primary">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
-                      viewBox="0 0 24 24"
+                      viewBox="0 0 50 50"
                       fill="currentColor"
                     >
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.967 0-1.75-.784-1.75-1.75s.783-1.75 1.75-1.75c.966 0 1.75.784 1.75 1.75s-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.556c0-1.327-.027-3.033-1.85-3.033-1.851 0-2.135 1.445-2.135 2.941v5.648h-3v-10h2.885v1.364h.041c.402-.762 1.385-1.564 2.849-1.564 3.048 0 3.61 2.006 3.61 4.613v5.587z" />
+                      <path d="M 11 4 C 7.1456661 4 4 7.1456661 4 11 L 4 39 C 4 42.854334 7.1456661 46 11 46 L 39 46 C 42.854334 46 46 42.854334 46 39 L 46 11 C 46 7.1456661 42.854334 4 39 4 L 11 4 z M 11 6 L 39 6 C 41.773666 6 44 8.2263339 44 11 L 44 39 C 44 41.773666 41.773666 44 39 44 L 11 44 C 8.2263339 44 6 41.773666 6 39 L 6 11 C 6 8.2263339 8.2263339 6 11 6 z M 13.085938 13 L 22.308594 26.103516 L 13 37 L 15.5 37 L 23.4375 27.707031 L 29.976562 37 L 37.914062 37 L 27.789062 22.613281 L 36 13 L 33.5 13 L 26.660156 21.009766 L 21.023438 13 L 13.085938 13 z M 16.914062 15 L 19.978516 15 L 34.085938 35 L 31.021484 35 L 16.914062 15 z"></path>
                     </svg>
-                  </a>
+                  </Link>
+                  <Link href="#" className="text-text-color hover:text-primary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 50 50"
+                      fill="currentColor"
+                    >
+                      <path d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 14 11.011719 C 12.904779 11.011719 11.919219 11.339079 11.189453 11.953125 C 10.459687 12.567171 10.011719 13.484511 10.011719 14.466797 C 10.011719 16.333977 11.631285 17.789609 13.691406 17.933594 A 0.98809878 0.98809878 0 0 0 13.695312 17.935547 A 0.98809878 0.98809878 0 0 0 14 17.988281 C 16.27301 17.988281 17.988281 16.396083 17.988281 14.466797 A 0.98809878 0.98809878 0 0 0 17.986328 14.414062 C 17.884577 12.513831 16.190443 11.011719 14 11.011719 z M 14 12.988281 C 15.392231 12.988281 15.94197 13.610038 16.001953 14.492188 C 15.989803 15.348434 15.460091 16.011719 14 16.011719 C 12.614594 16.011719 11.988281 15.302225 11.988281 14.466797 C 11.988281 14.049083 12.140703 13.734298 12.460938 13.464844 C 12.78117 13.19539 13.295221 12.988281 14 12.988281 z M 11 19 A 1.0001 1.0001 0 0 0 10 20 L 10 39 A 1.0001 1.0001 0 0 0 11 40 L 17 40 A 1.0001 1.0001 0 0 0 18 39 L 18 33.134766 L 18 20 A 1.0001 1.0001 0 0 0 17 19 L 11 19 z M 20 19 A 1.0001 1.0001 0 0 0 19 20 L 19 39 A 1.0001 1.0001 0 0 0 20 40 L 26 40 A 1.0001 1.0001 0 0 0 27 39 L 27 29 C 27 28.170333 27.226394 27.345035 27.625 26.804688 C 28.023606 26.264339 28.526466 25.940057 29.482422 25.957031 C 30.468166 25.973981 30.989999 26.311669 31.384766 26.841797 C 31.779532 27.371924 32 28.166667 32 29 L 32 39 A 1.0001 1.0001 0 0 0 33 40 L 39 40 A 1.0001 1.0001 0 0 0 40 39 L 40 28.261719 C 40 25.300181 39.122788 22.95433 37.619141 21.367188 C 36.115493 19.780044 34.024172 19 31.8125 19 C 29.710483 19 28.110853 19.704889 27 20.423828 L 27 20 A 1.0001 1.0001 0 0 0 26 19 L 20 19 z M 12 21 L 16 21 L 16 33.134766 L 16 38 L 12 38 L 12 21 z M 21 21 L 25 21 L 25 22.560547 A 1.0001 1.0001 0 0 0 26.798828 23.162109 C 26.798828 23.162109 28.369194 21 31.8125 21 C 33.565828 21 35.069366 21.582581 36.167969 22.742188 C 37.266572 23.901794 38 25.688257 38 28.261719 L 38 38 L 34 38 L 34 29 C 34 27.833333 33.720468 26.627107 32.990234 25.646484 C 32.260001 24.665862 31.031834 23.983076 29.517578 23.957031 C 27.995534 23.930001 26.747519 24.626988 26.015625 25.619141 C 25.283731 26.611293 25 27.829667 25 29 L 25 38 L 21 38 L 21 21 z"></path>
+                    </svg>
+                  </Link>
+                  <Link href="#" className="text-text-color hover:text-primary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 50 50"
+                      fill="currentColor"
+                    >
+                      <path d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 25.832031 46 A 1.0001 1.0001 0 0 0 26.158203 46 L 31.832031 46 A 1.0001 1.0001 0 0 0 32.158203 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 41 C 44 42.668484 42.668484 44 41 44 L 33 44 L 33 30 L 36.820312 30 L 38.220703 23 L 33 23 L 33 21 C 33 20.442508 33.05305 20.398929 33.240234 20.277344 C 33.427419 20.155758 34.005822 20 35 20 L 38 20 L 38 14.369141 L 37.429688 14.097656 C 37.429688 14.097656 35.132647 13 32 13 C 29.75 13 27.901588 13.896453 26.71875 15.375 C 25.535912 16.853547 25 18.833333 25 21 L 25 23 L 22 23 L 22 30 L 25 30 L 25 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 32 15 C 34.079062 15 35.38736 15.458455 36 15.701172 L 36 18 L 35 18 C 33.849178 18 32.926956 18.0952 32.150391 18.599609 C 31.373826 19.104024 31 20.061492 31 21 L 31 25 L 35.779297 25 L 35.179688 28 L 31 28 L 31 44 L 27 44 L 27 28 L 24 28 L 24 25 L 27 25 L 27 21 C 27 19.166667 27.464088 17.646453 28.28125 16.625 C 29.098412 15.603547 30.25 15 32 15 z"></path>
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>
