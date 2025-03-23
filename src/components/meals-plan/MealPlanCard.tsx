@@ -45,7 +45,7 @@ const MealPlanCard = ({ plan }: MealPlanCardProps) => {
 
       <CardFooter>
         <Button className="px-6 py-2 bg-primary text-base rounded-lg hover:bg-button-primary-hover transition-colors">
-          Sign Up
+          Buy Now
         </Button>
       </CardFooter>
     </Card>

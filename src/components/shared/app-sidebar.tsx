@@ -20,17 +20,17 @@ const items = [
   },
   {
     title: "All Meals",
-    url: "#",
+    url: "/dashboard/all-meals",
     icon: Inbox,
   },
   {
     title: "All Reviews",
-    url: "#",
+    url: "/dashboard/all-reviews",
     icon: Calendar,
   },
   {
     title: "Upcoming Meals",
-    url: "#",
+    url: "/dashboard/upcoming-meals",
     icon: Search,
   },
   {

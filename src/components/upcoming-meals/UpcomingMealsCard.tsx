@@ -1,4 +1,3 @@
-// UpcomingMealsCard.tsx
 "use client";
 import { UpcomingMeal } from "@/types";
 import {
@@ -31,7 +30,6 @@ const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal, admin_Email }) => {
   // Check if the user has already liked this meal
   const initialLiked = meal.liked ? meal.liked.includes(user?.email) : false;
 
-  // State to track likes
   const [likes, setLikes] = useState(meal.likes);
   const [liked, setLiked] = useState(initialLiked);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -124,12 +122,10 @@ const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal, admin_Email }) => {
             <Rating style={{ maxWidth: 100 }} value={meal.rating} readOnly />
           </div>
 
-          {/* Import the separate LikeButton component */}
           <LikeButton liked={liked} likes={likes} onClick={handleLike} />
         </CardFooter>
       </Card>
 
-      {/* Import the separate UnlikeConfirmationModal component */}
       <UnlikeConfirmationModal
         isOpen={isModalOpen}
         setIsOpen={setIsModalOpen}
