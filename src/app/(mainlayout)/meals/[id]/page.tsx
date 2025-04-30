@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Heart, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -72,6 +72,7 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-24">
+      {/* Back Button */}
       <Link
         href="/meals"
         className="inline-flex items-center text-primary hover:text-button-primary-hover mb-6"
@@ -80,6 +81,7 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
         Back to All Meals
       </Link>
 
+      {/* Meal Content */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="relative">
           <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
@@ -95,6 +97,7 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
 
+        {/* Meal Details */}
         <div className="flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-start">
@@ -106,7 +109,7 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
                   ({meal.rating.toFixed(1)})
                 </span>
                 <Rating
-                  value={meal.rating.toFixed(1)}
+                  value={Number(meal.rating.toFixed(1))}
                   readOnly
                   style={{ maxWidth: 60 }}
                 />
@@ -156,9 +159,22 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
             Add a Review
           </Button>
         </div>
-        {mealId && <ReviewCard id={mealId} />}
+
+        {/* Render Reviews */}
+        {reviews.length === 0 ? (
+          <p className="text-gray-500 text-center">
+            No reviews yet. Be the first to review!
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {reviews.map((review) => (
+              <ReviewCard key={review._id} review={review} />
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* Review Dialog */}
       <ReviewDialog
         mealId={mealId}
         mealTitle={meal.mealTitle}

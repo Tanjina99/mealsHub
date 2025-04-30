@@ -1,4 +1,3 @@
-// components/MealManagementTable.js
 "use client";
 import React, { useState, useEffect } from "react";
 import {
@@ -11,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Pencil, StarIcon, Trash2 } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import {
   Pagination,
   PaginationContent,
@@ -23,9 +22,10 @@ import {
 } from "@/components/ui/pagination";
 import { TMeal } from "@/types";
 import MealEditModal from "@/components/dashboard-meal-modal/MealModal";
-import { Rating, Star } from "@smastrom/react-rating";
+import { Rating } from "@smastrom/react-rating";
 import toast from "react-hot-toast";
 import axios from "axios";
+import Image from "next/image";
 
 const MealManagementTable = () => {
   const [meals, setMeals] = useState<TMeal[]>([]);
@@ -144,6 +144,14 @@ const MealManagementTable = () => {
     );
   }
 
+  if (error) {
+    return (
+      <div className="flex justify-center items-center mt-4">
+        <p className="text-red-500">{error}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto py-10">
       <Table>
@@ -164,9 +172,11 @@ const MealManagementTable = () => {
           {currentMeals.map((meal) => (
             <TableRow key={meal._id}>
               <TableCell>
-                <img
+                <Image
                   src={meal.mealImage}
                   alt={meal.mealTitle}
+                  height={1300}
+                  width={1400}
                   className="w-16 h-16 object-cover rounded"
                 />
               </TableCell>
