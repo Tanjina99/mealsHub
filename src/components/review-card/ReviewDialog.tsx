@@ -75,7 +75,9 @@ const ReviewDialog = ({
 
     setSubmitLoading(true);
 
-    const newReview = {
+    const newReview: MealReview = {
+      _id: "", // Assign a default or generated value if available
+      __v: 0, // Assign a default value
       comment: reviewFormData.review,
       email: user?.email || "",
       food_id: mealId,
@@ -91,6 +93,7 @@ const ReviewDialog = ({
       "https://dorm-dine-hub-server.vercel.app/reviews",
       newReview
     );
+    console.log(response);
 
     onReviewSubmitted(newReview);
     toast.success("Your review has been submitted!");

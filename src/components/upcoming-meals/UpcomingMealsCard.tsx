@@ -24,7 +24,7 @@ interface MealCardProps {
   admin_Email: string;
 }
 
-const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal, admin_Email }) => {
+const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal }) => {
   const { user } = useAuth();
 
   // Check if the user has already liked this meal
