@@ -8,7 +8,7 @@ import { X } from "lucide-react";
 import { MealReview, TMeal } from "@/types";
 import useAuth from "@/hooks/useAuth";
 import toast from "react-hot-toast";
-import axios from "axios";
+
 
 interface ReviewDialogProps {
   meal: TMeal;
@@ -75,7 +75,9 @@ const ReviewDialog = ({
 
     setSubmitLoading(true);
 
-    const newReview = {
+    const newReview: MealReview = {
+      _id: "", // Assign a default or generated value for _id
+      __v: 0, // Assign a default value for __v
       comment: reviewFormData.review,
       email: user?.email || "",
       food_id: mealId,
@@ -87,10 +89,10 @@ const ReviewDialog = ({
       user_rating: reviewFormData.rating,
     };
 
-    const response = await axios.post(
-      "https://dorm-dine-hub-server.vercel.app/reviews",
-      newReview
-    );
+    // const response = await axios.post(
+    //   "https://dorm-dine-hub-server.vercel.app/reviews",
+    //   newReview
+    // );
 
     onReviewSubmitted(newReview);
     toast.success("Your review has been submitted!");

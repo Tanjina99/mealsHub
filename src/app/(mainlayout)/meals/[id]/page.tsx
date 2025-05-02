@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Heart, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,10 +8,13 @@ import { TMeal, MealReview } from "@/types";
 import ReviewCard from "@/components/review-card/ReviewCard";
 import ReviewDialog from "@/components/review-card/ReviewDialog";
 import { Rating } from "@smastrom/react-rating";
+import { useParams } from "next/navigation";
 
-const SingleMealPage = ({ params }: { params: { id: string } }) => {
-  // Unwrap the params using React.use()
-  const mealId = params.id;
+// For client components, use hooks to access params
+const SingleMealPage = () => {
+  // Use the useParams hook to get the id parameter
+  const params = useParams();
+  const mealId = params.id as string;
 
   const [meal, setMeal] = useState<TMeal | null>(null);
   const [reviews, setReviews] = useState<MealReview[]>([]);
@@ -20,19 +23,23 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
 
   useEffect(() => {
     const fetchMeal = async () => {
-      const response = await fetch(
-        `https://dorm-dine-hub-server.vercel.app/meals/${mealId}`
-      );
+      try {
+        const response = await fetch(
+          `https://dorm-dine-hub-server.vercel.app/meals/${mealId}`
+        );
 
-      if (response.ok) {
-        const data = await response.json();
-        setMeal(data);
-        setReviews(data.reviews || []);
-      } else {
-        console.error("Failed to fetch meal data");
+        if (response.ok) {
+          const data = await response.json();
+          setMeal(data);
+          setReviews(data.reviews || []);
+        } else {
+          console.error("Failed to fetch meal data");
+        }
+      } catch (error) {
+        console.error("Error fetching meal data:", error);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
     };
 
     fetchMeal();
@@ -44,7 +51,6 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
 
   const openReviewDialog = () => {
     setIsReviewDialogOpen(true);
-    console.log(openReviewDialog);
   };
 
   const closeReviewDialog = () => {
@@ -106,7 +112,7 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
                   ({meal.rating.toFixed(1)})
                 </span>
                 <Rating
-                  value={meal.rating.toFixed(1)}
+                  value={parseFloat(meal.rating.toFixed(1))}
                   readOnly
                   style={{ maxWidth: 60 }}
                 />
@@ -149,6 +155,9 @@ const SingleMealPage = ({ params }: { params: { id: string } }) => {
       {/* Reviews Section */}
       <div className="mt-12">
         <div className="flex items-center justify-between mb-4">
+          <h2 className="text-2xl font-bold text-text-color">
+            Customer Reviews: {reviews.length}
+          </h2>
           <Button
             className="bg-button-primary hover:bg-button-primary-hover text-base"
             onClick={openReviewDialog}

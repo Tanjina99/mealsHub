@@ -13,7 +13,23 @@ import { TMeal } from "@/types";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const MealEditModal = ({ mealId, isOpen, onClose, onUpdate }) => {
+interface MealEditModalProps {
+  mealId: string;
+  isOpen: boolean;
+  onClose: () => void;
+  onUpdate: (mealId: string, formData: typeof initialFormData) => void;
+}
+
+const initialFormData = {
+  mealTitle: "",
+  mealType: "",
+  price: "",
+  rating: "",
+  likes: "",
+  reviews: "",
+};
+
+const MealEditModal: React.FC<MealEditModalProps> = ({ mealId, isOpen, onClose, onUpdate }) => {
   const [meal, setMeal] = useState<TMeal | null>(null);
   const [formData, setFormData] = useState({
     mealTitle: "",
@@ -46,7 +62,7 @@ const MealEditModal = ({ mealId, isOpen, onClose, onUpdate }) => {
     }
   }, [mealId, isOpen]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -54,13 +70,12 @@ const MealEditModal = ({ mealId, isOpen, onClose, onUpdate }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     axios
-      .put(`https://dorm-dine-hub-server.vercel.app/meals/${mealId}`, formData)
+      .put<{ modifiedCount: number }>(`https://dorm-dine-hub-server.vercel.app/meals/${mealId}`, formData)
       .then((res) => {
-        // console.log(res.data);
         if (res.data.modifiedCount > 0) {
           onUpdate(mealId, formData);
           onClose();
@@ -69,7 +84,7 @@ const MealEditModal = ({ mealId, isOpen, onClose, onUpdate }) => {
           toast.error("No changes made to the meal.");
         }
       })
-      .catch((err) => {
+      .catch((err: unknown) => {
         console.error("Error updating meal:", err);
         toast.error("Failed to update meal.");
       });

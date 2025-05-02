@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/form";
 import useAuth from "@/hooks/useAuth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -31,7 +30,7 @@ const formSchema = z.object({
 
 export default function Signin() {
   const router = useRouter();
-  const { signIn, googleSignIn } = useAuth();
+  const { signIn } = useAuth();
   // 1. Use react-hook-form with zod validation.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -51,39 +50,39 @@ export default function Signin() {
   }
 
   //gogolesign in
-  const handleSocial = async (provider: any) => {
-    await provider().then((res: any) => {
-      // console.log(res);
-      toast.success("Login Successful");
+  // const handleSocial = async (provider: any) => {
+  //   await provider().then((res: any) => {
+  //     // console.log(res);
+  //     toast.success("Login Successful");
 
-      const newUser = {
-        name: res.user.displayName,
-        email: res.user.email,
-        photo: res.user.photoURL,
-        badge: "Bronze",
-        badge_image:
-          "https://i.ibb.co/TrN8dFr/bronze-badge-removebg-preview.png",
-      };
+  //     const newUser = {
+  //       name: res.user.displayName,
+  //       email: res.user.email,
+  //       photo: res.user.photoURL,
+  //       badge: "Bronze",
+  //       badge_image:
+  //         "https://i.ibb.co/TrN8dFr/bronze-badge-removebg-preview.png",
+  //     };
 
-      axios
-        .get(
-          `https://dorm-dine-hub-server.vercel.app/users?email=${res.user.email}`
-        )
-        .then((response) => {
-          // console.log(response);
-          if (response.data.data.length === 0) {
-            axios
-              .post("https://dorm-dine-hub-server.vercel.app/users", newUser)
-              .then((response) => {
-                console.log(response);
-              });
-          }
-        });
-      router.push("/");
+  //     axios
+  //       .get(
+  //         `https://dorm-dine-hub-server.vercel.app/users?email=${res.user.email}`
+  //       )
+  //       .then((response) => {
+  //         // console.log(response);
+  //         if (response.data.data.length === 0) {
+  //           axios
+  //             .post("https://dorm-dine-hub-server.vercel.app/users", newUser)
+  //             .then((response) => {
+  //               console.log(response);
+  //             });
+  //         }
+  //       });
+  //     router.push("/");
 
-      // Update user profile
-    });
-  };
+  //     // Update user profile
+  //   });
+  // };
 
   return (
     <div className="min-h-screen bg-secondary-mode-bg flex justify-center items-center p-4">

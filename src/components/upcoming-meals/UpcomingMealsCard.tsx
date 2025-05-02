@@ -24,11 +24,11 @@ interface MealCardProps {
   admin_Email: string;
 }
 
-const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal, admin_Email }) => {
+const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal }) => {
   const { user } = useAuth();
 
   // Check if the user has already liked this meal
-  const initialLiked = meal.liked ? meal.liked.includes(user?.email) : false;
+  const initialLiked = meal.liked ? meal.liked.includes(user?.email ?? "") : false;
 
   const [likes, setLikes] = useState(meal.likes);
   const [liked, setLiked] = useState(initialLiked);
@@ -36,7 +36,7 @@ const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal, admin_Email }) => {
 
   // Handle like functionality
   useEffect(() => {
-    setLiked(meal?.liked?.includes(user?.email) || false);
+    setLiked(meal?.liked?.includes(user?.email ?? "") || false);
   }, [meal, user]);
 
   const handleLike = async () => {

@@ -37,7 +37,6 @@
 import { MealReview } from "@/types";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import Image from "next/image";
 import { Rating } from "@smastrom/react-rating";
 import { Heart } from "lucide-react";
@@ -54,7 +53,7 @@ const ReviewCard = ({ id }: { id: string }) => {
       setReviews(response.data.data);
     };
     fetchReviews();
-  }, []);
+  }, [id]);
 
   const handleLoadMore = () => {
     setVisibleReviews(reviews.length); // Show all reviews when clicked

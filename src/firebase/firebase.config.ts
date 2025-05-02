@@ -10,11 +10,9 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-// Initialize Firebase
 let app: FirebaseApp | undefined;
 let auth: Auth | null = null;
 
-// Only initialize Firebase if we're in a browser environment and it hasn't been initialized already
 if (typeof window !== 'undefined' && !getApps().length) {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);

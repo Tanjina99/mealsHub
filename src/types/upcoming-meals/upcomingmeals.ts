@@ -14,4 +14,5 @@ export interface UpcomingMeal {
   reviews: number;
   adminName: string;
   admin_Email: string;
+  liked?: string[];
 }

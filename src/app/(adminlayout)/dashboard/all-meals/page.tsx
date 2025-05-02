@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Pencil, StarIcon, Trash2 } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import {
   Pagination,
   PaginationContent,
@@ -23,9 +23,10 @@ import {
 } from "@/components/ui/pagination";
 import { TMeal } from "@/types";
 import MealEditModal from "@/components/dashboard-meal-modal/MealModal";
-import { Rating, Star } from "@smastrom/react-rating";
+import { Rating } from "@smastrom/react-rating";
 import toast from "react-hot-toast";
 import axios from "axios";
+import Image from "next/image";
 
 const MealManagementTable = () => {
   const [meals, setMeals] = useState<TMeal[]>([]);
@@ -35,6 +36,8 @@ const MealManagementTable = () => {
   const [mealsPerPage] = useState(10);
   const [selectedMealId, setSelectedMealId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  console.log(error)
 
   useEffect(() => {
     const fetchMeals = () => {
@@ -80,7 +83,26 @@ const MealManagementTable = () => {
     setIsModalOpen(false);
   };
 
-  const handleMealUpdate = (mealId, updatedData) => {
+  const handleMealUpdate = (
+    mealId: string,
+    formData: {
+      mealTitle: string;
+      mealType: string;
+      price: string;
+      rating: string;
+      likes: string;
+      reviews: string;
+    }
+  ): void => {
+    const updatedData: Partial<TMeal> = {
+      mealTitle: formData.mealTitle,
+      mealType: formData.mealType,
+      price: parseFloat(formData.price),
+      rating: parseFloat(formData.rating),
+      likes: parseInt(formData.likes, 10),
+      reviews: parseInt(formData.reviews, 10),
+    };
+
     setMeals((prevMeals) =>
       prevMeals.map((meal) =>
         meal._id === mealId ? { ...meal, ...updatedData } : meal
@@ -94,7 +116,7 @@ const MealManagementTable = () => {
   const currentMeals = meals.slice(indexOfFirstMeal, indexOfLastMeal);
   const totalPages = Math.ceil(meals.length / mealsPerPage);
 
-  const paginate = (pageNumber) => {
+  const paginate = (pageNumber: number): void => {
     if (pageNumber > 0 && pageNumber <= totalPages) {
       setCurrentPage(pageNumber);
     }
@@ -164,10 +186,12 @@ const MealManagementTable = () => {
           {currentMeals.map((meal) => (
             <TableRow key={meal._id}>
               <TableCell>
-                <img
+                <Image
                   src={meal.mealImage}
                   alt={meal.mealTitle}
                   className="w-16 h-16 object-cover rounded"
+                  height={64}
+                  width={64}
                 />
               </TableCell>
               <TableCell className="font-medium">{meal.mealTitle}</TableCell>
@@ -225,7 +249,7 @@ const MealManagementTable = () => {
               ) : (
                 <PaginationItem key={pageNumber}>
                   <PaginationLink
-                    onClick={() => paginate(pageNumber)}
+                    onClick={() => typeof pageNumber === "number" && paginate(pageNumber)}
                     isActive={currentPage === pageNumber}
                     className="cursor-pointer"
                   >
@@ -251,7 +275,7 @@ const MealManagementTable = () => {
 
       {/* Meal Edit Modal */}
       <MealEditModal
-        mealId={selectedMealId}
+        mealId={selectedMealId || ""}
         isOpen={isModalOpen}
         onClose={handleModalClose}
         onUpdate={handleMealUpdate}
