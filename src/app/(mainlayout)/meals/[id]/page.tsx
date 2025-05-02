@@ -78,6 +78,7 @@ const SingleMealPage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-24">
+      {/* Back Button */}
       <Link
         href="/meals"
         className="inline-flex items-center text-primary hover:text-button-primary-hover mb-6"
@@ -86,6 +87,7 @@ const SingleMealPage = () => {
         Back to All Meals
       </Link>
 
+      {/* Meal Content */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="relative">
           <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
@@ -101,6 +103,7 @@ const SingleMealPage = () => {
           </div>
         </div>
 
+        {/* Meal Details */}
         <div className="flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-start">
@@ -165,9 +168,22 @@ const SingleMealPage = () => {
             Add a Review
           </Button>
         </div>
-        {mealId && <ReviewCard id={mealId} />}
+
+        {/* Render Reviews */}
+        {reviews.length === 0 ? (
+          <p className="text-gray-500 text-center">
+            No reviews yet. Be the first to review!
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {reviews.map((review) => (
+              <ReviewCard key={review._id} review={review} />
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* Review Dialog */}
       <ReviewDialog
         mealId={mealId}
         mealTitle={meal.mealTitle}

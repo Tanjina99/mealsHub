@@ -1,4 +1,3 @@
-// components/MealManagementTable.js
 "use client";
 import React, { useState, useEffect } from "react";
 import {
@@ -166,6 +165,14 @@ const MealManagementTable = () => {
     );
   }
 
+  if (error) {
+    return (
+      <div className="flex justify-center items-center mt-4">
+        <p className="text-red-500">{error}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto py-10">
       <Table>
@@ -189,6 +196,8 @@ const MealManagementTable = () => {
                 <Image
                   src={meal.mealImage}
                   alt={meal.mealTitle}
+                  height={1300}
+                  width={1400}
                   className="w-16 h-16 object-cover rounded"
                   height={64}
                   width={64}
