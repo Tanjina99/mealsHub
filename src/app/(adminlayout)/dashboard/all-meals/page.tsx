@@ -196,8 +196,6 @@ const MealManagementTable = () => {
                 <Image
                   src={meal.mealImage}
                   alt={meal.mealTitle}
-                  height={1300}
-                  width={1400}
                   className="w-16 h-16 object-cover rounded"
                   height={64}
                   width={64}

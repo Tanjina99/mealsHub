@@ -177,7 +177,7 @@ const SingleMealPage = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {reviews.map((review) => (
-              <ReviewCard key={review._id} review={review} />
+              <ReviewCard key={review._id} id={review._id} />
             ))}
           </div>
         )}
