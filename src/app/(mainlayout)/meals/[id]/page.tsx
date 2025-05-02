@@ -78,7 +78,6 @@ const SingleMealPage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-24">
-      {/* Back Button */}
       <Link
         href="/meals"
         className="inline-flex items-center text-primary hover:text-button-primary-hover mb-6"
@@ -87,7 +86,6 @@ const SingleMealPage = () => {
         Back to All Meals
       </Link>
 
-      {/* Meal Content */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="relative">
           <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
@@ -103,7 +101,6 @@ const SingleMealPage = () => {
           </div>
         </div>
 
-        {/* Meal Details */}
         <div className="flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-start">
@@ -157,10 +154,8 @@ const SingleMealPage = () => {
 
       {/* Reviews Section */}
       <div className="mt-12">
+        <h2 className="text-2xl font-semibold mb-4">Customer Reviews: {reviews.length}</h2>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-text-color">
-            Customer Reviews: {reviews.length}
-          </h2>
           <Button
             className="bg-button-primary hover:bg-button-primary-hover text-base"
             onClick={openReviewDialog}
@@ -168,22 +163,9 @@ const SingleMealPage = () => {
             Add a Review
           </Button>
         </div>
-
-        {/* Render Reviews */}
-        {reviews.length === 0 ? (
-          <p className="text-gray-500 text-center">
-            No reviews yet. Be the first to review!
-          </p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {reviews.map((review) => (
-              <ReviewCard key={review._id} id={review._id} />
-            ))}
-          </div>
-        )}
+        {mealId && <ReviewCard id={mealId} />}
       </div>
 
-      {/* Review Dialog */}
       <ReviewDialog
         mealId={mealId}
         mealTitle={meal.mealTitle}
