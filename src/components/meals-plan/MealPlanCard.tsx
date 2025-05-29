@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../ui/button";
 import {
   Card,
@@ -44,9 +45,11 @@ const MealPlanCard = ({ plan }: MealPlanCardProps) => {
       </CardContent>
 
       <CardFooter>
-        <Button className="px-6 py-2 bg-primary text-base rounded-lg hover:bg-button-primary-hover transition-colors">
-          Buy Now
-        </Button>
+        <Link href={`/checkout/${plan.slug}`}>
+          <Button className="px-6 py-2 bg-primary text-base rounded-lg hover:bg-button-primary-hover transition-colors">
+            Buy Now
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

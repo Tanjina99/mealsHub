@@ -19,8 +19,10 @@ export type TMeal = {
 
 export type MealPlan = {
   name: string;
+  slug: string;
   price: string;
   description: string;
+  badge_image?: string;
   icon: JSX.Element;
   benefits: string[];
 };
