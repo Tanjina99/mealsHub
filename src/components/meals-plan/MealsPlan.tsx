@@ -4,6 +4,7 @@ import { Award, Trophy, Crown } from "lucide-react";
 const mealPlans = [
   {
     name: "Silver Plan",
+    slug: "Silver",
     price: "$12.99",
     description:
       "Enjoy basic meal delivery with fresh, healthy meals delivered daily.",
@@ -16,6 +17,7 @@ const mealPlans = [
   },
   {
     name: "Gold Plan",
+    slug: "Gold",
     price: "$69.99",
     description:
       "Get premium meals with additional benefits for a week’s worth of healthy meals.",
@@ -29,6 +31,7 @@ const mealPlans = [
   },
   {
     name: "Platinum Plan",
+    slug: "Platinum",
     price: "$249.99",
     description:
       "The ultimate plan for a month’s worth of meals, with premium options and exclusive perks.",
